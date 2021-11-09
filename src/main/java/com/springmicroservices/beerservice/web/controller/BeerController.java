@@ -21,16 +21,13 @@ public class BeerController {
     @PostMapping
     public ResponseEntity addNewBeer(@RequestBody BeerDto beerDto){
         // TODO - implement with service
-        BeerDto newBeer = BeerDto.builder().build();
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", "api/va/beer/" + newBeer.getBeerId().toString());
-        return new ResponseEntity(headers, HttpStatus.CREATED);
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @PutMapping("/{beerId}")
-    public ResponseEntity updateBeerById(@PathVariable BeerDto beerDto){
+    public ResponseEntity updateBeerById(@PathVariable("beerId") UUID beerId, @RequestBody BeerDto beerDto){
         // TODO implement with service
-        return new ResponseEntity(BeerDto.builder().build(), HttpStatus.NO_CONTENT);
+        return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
 
